@@ -5,57 +5,64 @@
 #include <iostream>
 #include <stdlib.h>
 #include <fstream>
+#include <vector>
 #include <string>
 #include <ctime>
+#include <cmath>
+#include <list>
 using namespace std;
 
 // ÁREA DAS STRUCTS =======================================================
 
-typedef struct student_data{
-    string name;
-    long int registration;
-}SD;
+typedef struct{
+    int A;
+    string nome;
+    int total_matriculas;
+    long long int matricula;
+} Estudantes;
 
-typedef struct cell_list{
-    int key;
-    cell_list *next;
-}CL;
+/*typedef struct{
+    STaluno dados;
+    struct STlista *prox;
+} STlista;
 
-typedef struct hash_table{
-    hash_table *first;
-    hash_table *last;
-    int total_students;
-}HT;
+typedef struct{
+    STlista *inicio;
+    STlista *fim;
+    int total_matriculas;
+} SThash;*/
 
 // ÁREA DA NOMEAÇÃO DE FUNÇÕES =======================================================
 
-void add_to_file();
+void ler_arquivo(string nome_arq, Estudantes *E, vector<list<Estudantes>> tabela_hash);
 
-void delete_from_file();
-
-
-int func_hash();
-
-CL *allocate_cell();
-
-double choose_hash_size();
-
-void create_prime_number();
+void modificar_o_arquivo(string nome_arq, const vector<list<Estudantes>>& tabela_hash);
 
 
-void insert_hash();
+int funcao_hash();
 
-void delete_hash();
+void descobrir_numero_primo();
 
-void search_hash();
+//STlista *alocar_memoria();
 
-void total_registrations();
+std::istream& escolher_metodo_hash(int metodo_hash);
 
-void print_registrations();
+std::istream& escolher_tamanho_tabela_hash(long tamanho_vetor);
+
+
+void inserir_na_hash();
+
+void deletar_da_hash();
+
+void procurar_na_hash();
+
+void total_de_matriculas();
+
+void exibir_todas_matriculas();
 
 
 void menu_hash();
 
-int option_hash();
+int opcao_hash();
 
 #endif
